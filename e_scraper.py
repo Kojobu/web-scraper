@@ -13,15 +13,12 @@ apikey = '' # enter your api key here
 username = '' # enter your username here
 header = {"User-Agent": 'simple scrap v.1.1'}
 auth = (username, apikey)
-threshold = 20 # threshold = number * number of objects on page
-upper_pagelim = 1020
-size = 128
-offset = 0
+threshold = 20 # pages per data file (ramsize dependent)
+upper_pagelim = 1020 # just leave it, e only allow up to 750 pages anyway
+size = 128 # size of image (all images are rescaled to 1:1 !)
+offset = 0 # start at specific page, startpage = offset*threshold
 website = 'https://e621.net/posts?page='
-side = str(int(offset*threshold))
-tags = '&tags=rating%3Ae+-webm+-flash+-comic+-animated+-absurd_res'
-#posts?page=0&tags=dragon+-webm+-flash+-comic+feral+-animated'
-url= website + side + tags
+tags = '' # enter tag url like e.g. '&tags=rating%3As+dragon+-absurd_res'
 
 class data():
     def __init__(self,num,size):
